@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ForEach</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <hr>
+    <div id="tasks"></div>
+
+    <script>
+      const products = [
+        { title: "Burger", price: 132 },
+        { title: "Pizza", price: 20 },
+      ];
+
+      const app = document.getElementById("app");
+      products.forEach((product) => {
+        app.innerHTML += `<li>${product.title} - ${product.price}</li>`;
+      });
+
+      /******************/
+
+      const appTasks = document.getElementById("tasks");
+
+      const tasks = [
+        { id: 1, title: "make dinner", done: false },
+        { id: 2, title: "sweep the floor", done: true },
+        { id: 3, title: "feed the kittens", done: true },
+        { id: 4, title: "buy groceries", done: false },
+        { id: 5, title: "take a bath", done: true },
+      ];
+
+      tasks.forEach((task) => {
+        appTasks.innerHTML += `
+        <li>
+            <input 
+            type="checkbox" 
+            id="${task.id}" 
+            name="${task.title}"
+            ${task.done && "checked"}
+            <label for="${task.title}">${task.title}</label>
+        </li>`;
+      });
+    </script>
+  </body>
+</html>
